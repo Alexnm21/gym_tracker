@@ -1,16 +1,13 @@
-# gym_tracker
 
-A new Flutter project.
+# Gym Tracker
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+Application to track the progress made in the gym. It is used to store information about each exercise performed, such as the number of repetitions and the weight used, to take into account the progress achieved in each exercise.
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Image0](assets/readme_images/image0.png?raw=true "Theme 1")
+![Image1](assets/readme_images/image1.png?raw=true "Theme 1")
+![Image2](assets/readme_images/image2.png?raw=true "Theme 1")
+![Image3](assets/readme_images/image3.png?raw=true "Theme 1")
