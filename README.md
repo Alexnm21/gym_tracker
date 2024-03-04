@@ -4,6 +4,8 @@
 
 Application to track the progress made in the gym. It is used to store information about each exercise performed, such as the number of repetitions and the weight used, to take into account the progress achieved in each exercise.
 
+For the database the Hive package has been used: https://pub.dev/packages/hive
+
 ## Screenshots
 
 
