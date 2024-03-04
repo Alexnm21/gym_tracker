@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gym_tracker/config/app_theme.dart';
 import 'package:gym_tracker/config/database.dart';
-import 'package:gym_tracker/controllers/category_controller.dart';
-import 'package:gym_tracker/controllers/training_controller.dart';
-import 'package:gym_tracker/models/models.dart';
-import 'package:gym_tracker/screens/screens.dart';
-import 'package:gym_tracker/services/categories_service.dart';
-import 'package:gym_tracker/services/exercises_service.dart';
+import 'package:gym_tracker/domain/controllers/category_controller.dart';
+import 'package:gym_tracker/domain/controllers/training_controller.dart';
+import 'package:gym_tracker/domain/models/models.dart';
+import 'package:gym_tracker/ui/screens/home_screen.dart';
+import 'package:gym_tracker/data/repositories/categories_repository.dart';
+import 'package:gym_tracker/data/repositories/exercises_repository.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
@@ -24,8 +24,8 @@ void main() async {
   CategoryController categoryCtrl = Get.put(CategoryController());
   TrainingController trainingCtrl = Get.put(TrainingController());
 
-  categoryCtrl.categories = await CategoriesService().getCategories();
-  categoryCtrl.exercises = await ExercisesService().getExercises();
+  categoryCtrl.categories = await CategoriesRepository().getCategories();
+  categoryCtrl.exercises = await ExercisesRepository().getExercises();
 
   trainingCtrl.exercises.value = categoryCtrl.exercises;
   trainingCtrl.loadTrainings();

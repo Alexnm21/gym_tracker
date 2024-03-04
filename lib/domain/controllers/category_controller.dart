@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gym_tracker/models/models.dart';
-import 'package:gym_tracker/services/exercises_service.dart';
+import 'package:gym_tracker/domain/models/models.dart';
+import 'package:gym_tracker/data/repositories/exercises_repository.dart';
 
 class CategoryController extends GetxController {
   List<ExerciseCategory> categories = [];
@@ -54,11 +54,11 @@ class CategoryController extends GetxController {
               onPressed: () {
                 
                 if(exercise!= null){ // ACTUALIZAR EJERCICIO
-                  ExercisesService().updateExercise(index, name, selectedCategory);
+                  ExercisesRepository().updateExercise(index, name, selectedCategory);
                     exercises[index].name = name;
                 } else { // AÑADIR UNO NUEVO
                   Exercise newExercise = Exercise(name: name, category: selectedCategory);
-                  ExercisesService().addExercise(newExercise);
+                  ExercisesRepository().addExercise(newExercise);
                     exercises.add(newExercise);
                 }
                 

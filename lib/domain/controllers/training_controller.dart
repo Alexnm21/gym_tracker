@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:gym_tracker/models/models.dart';
-import 'package:gym_tracker/services/trainings_service.dart';
+import 'package:gym_tracker/domain/models/models.dart';
+import 'package:gym_tracker/data/repositories/trainings_repository.dart';
 
 class TrainingController extends GetxController {
 
@@ -20,7 +20,7 @@ class TrainingController extends GetxController {
   Future<void> loadTrainings() async{
     loading.value = true;
     trainings.clear();
-    var list = await TrainingsService().getTrainingsByDate(selectedDay.value);
+    var list = await TrainingsRepository().getTrainingsByDate(selectedDay.value);
     trainings.addAll(list);
     loading.value = false;
   }

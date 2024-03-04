@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gym_tracker/config/app_theme.dart';
 import 'package:gym_tracker/config/utils.dart';
-import 'package:gym_tracker/controllers/category_controller.dart';
-import 'package:gym_tracker/controllers/training_controller.dart';
-import 'package:gym_tracker/models/models.dart';
-import 'package:gym_tracker/screens/training_details_screen.dart';
-import 'package:gym_tracker/widgets/widgets.dart';
+import 'package:gym_tracker/domain/controllers/category_controller.dart';
+import 'package:gym_tracker/domain/controllers/training_controller.dart';
+import 'package:gym_tracker/domain/models/models.dart';
+import 'package:gym_tracker/ui/screens/training_details_screen.dart';
+import 'package:gym_tracker/ui/widgets/widgets.dart';
 
 class TrainingScreen extends StatelessWidget {
   const TrainingScreen({super.key});

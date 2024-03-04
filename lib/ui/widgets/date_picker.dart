@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gym_tracker/config/app_theme.dart';
 import 'package:gym_tracker/config/utils.dart';
-import 'package:gym_tracker/controllers/training_controller.dart';
+import 'package:gym_tracker/domain/controllers/training_controller.dart';
 
 class DatePicker extends StatelessWidget {
   const DatePicker({super.key});

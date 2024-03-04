@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gym_tracker/config/app_theme.dart';
-import 'package:gym_tracker/controllers/training_controller.dart';
-import 'package:gym_tracker/screens/screens.dart';
-import 'package:gym_tracker/screens/training_details_screen.dart';
-import 'package:gym_tracker/services/trainings_service.dart';
-import 'package:gym_tracker/widgets/widgets.dart';
+import 'package:gym_tracker/domain/controllers/training_controller.dart';
+import 'package:gym_tracker/ui/screens/training_details_screen.dart';
+import 'package:gym_tracker/ui/screens/training_screen.dart';
+import 'package:gym_tracker/data/repositories/trainings_repository.dart';
+import 'package:gym_tracker/ui/widgets/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: DeleteDismissible(
                         deleteConfimText: '¿Estás seguro que quieres eliminar el entrenamiento de ${trainingCtrl.trainings[index].exercise.name}?',
                         onConfirm: () {
-                          TrainingsService().deleteTraining(index);
+                          TrainingsRepository().deleteTraining(index);
                           trainingCtrl.trainings.removeAt(index);
                           trainingCtrl.loadTrainings();
                           setState(() {});

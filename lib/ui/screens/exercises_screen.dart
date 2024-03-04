@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gym_tracker/controllers/category_controller.dart';
-import 'package:gym_tracker/models/models.dart';
-import 'package:gym_tracker/services/categories_service.dart';
-import 'package:gym_tracker/services/exercises_service.dart';
-import 'package:gym_tracker/widgets/widgets.dart';
+import 'package:gym_tracker/domain/controllers/category_controller.dart';
+import 'package:gym_tracker/domain/models/models.dart';
+import 'package:gym_tracker/data/repositories/categories_repository.dart';
+import 'package:gym_tracker/data/repositories/exercises_repository.dart';
+import 'package:gym_tracker/ui/widgets/widgets.dart';
 
 class ExercisesScreen extends StatefulWidget {
   const ExercisesScreen({super.key});
@@ -26,7 +26,7 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
   }
 
   loadData() async {
-    categories = await CategoriesService().getCategories();
+    categories = await CategoriesRepository().getCategories();
     setState(() {
       loading = false;
     });
@@ -57,7 +57,7 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
                 return DeleteDismissible(
                   deleteConfimText: '¿Estás seguro de eliminar este ejercicio? Si lo haces perderás todo su historial.',
                   onConfirm: (direction) {
-                    ExercisesService().deleteExercise(index);
+                    ExercisesRepository().deleteExercise(index);
                     setState(() {
                       categoryCtrl.exercises.removeAt(index);
                     });

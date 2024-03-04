@@ -1,7 +1,7 @@
 import 'package:gym_tracker/config/database.dart';
-import 'package:gym_tracker/models/models.dart';
+import 'package:gym_tracker/domain/models/models.dart';
 
-class ExercisesService {
+class ExercisesRepository {
 
   Future<List<Exercise>> getExercises() async {
     if(exerciseBox.isEmpty){

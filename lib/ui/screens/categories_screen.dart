@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:get/get.dart';
-import 'package:gym_tracker/controllers/category_controller.dart';
-import 'package:gym_tracker/models/models.dart';
-import 'package:gym_tracker/services/categories_service.dart';
-import 'package:gym_tracker/widgets/widgets.dart';
+import 'package:gym_tracker/domain/controllers/category_controller.dart';
+import 'package:gym_tracker/domain/models/models.dart';
+import 'package:gym_tracker/data/repositories/categories_repository.dart';
+import 'package:gym_tracker/ui/widgets/widgets.dart';
 
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({super.key});
@@ -45,7 +45,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             return DeleteDismissible(
               deleteConfimText: '¿Eliminar la categoría ${categoryCtrl.categories[index].name} de forma permanente? \n \nEsto borrará todos los ejercicios de esta categoría.',
               onConfirm: () {
-                CategoriesService().deleteCategory(index);
+                CategoriesRepository().deleteCategory(index);
                 setState(() {
                   categoryCtrl.categories.removeAt(index);
                 });
@@ -98,14 +98,14 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
               onPressed: () {
                 // ACTUALIZAR CATEGORÍA
                 if(category!= null){
-                  CategoriesService().updateExerciseCategory(index, name, selectedColor.value);
+                  CategoriesRepository().updateExerciseCategory(index, name, selectedColor.value);
                   setState(() {
                     categoryCtrl.categories[index].name = name;
                     categoryCtrl.categories[index].color = selectedColor.value;
                   });
                 }else{
                   ExerciseCategory newCategory = ExerciseCategory(name: name, color: selectedColor.value);
-                  CategoriesService().addCategory(newCategory);
+                  CategoriesRepository().addCategory(newCategory);
                   setState(() {
                     categoryCtrl.categories.add(newCategory);
                   });

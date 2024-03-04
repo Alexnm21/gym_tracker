@@ -1,4 +1,4 @@
-import 'package:gym_tracker/models/models.dart';
+import 'package:gym_tracker/domain/models/exercise_category.dart';
 import 'package:hive/hive.dart';
 
 part 'exercise.g.dart';

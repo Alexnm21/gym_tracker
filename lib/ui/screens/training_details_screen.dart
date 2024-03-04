@@ -4,10 +4,10 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:gym_tracker/config/app_theme.dart';
 import 'package:gym_tracker/config/utils.dart';
-import 'package:gym_tracker/controllers/training_controller.dart';
-import 'package:gym_tracker/models/models.dart';
-import 'package:gym_tracker/services/trainings_service.dart';
-import 'package:gym_tracker/widgets/widgets.dart';
+import 'package:gym_tracker/domain/controllers/training_controller.dart';
+import 'package:gym_tracker/domain/models/models.dart';
+import 'package:gym_tracker/data/repositories/trainings_repository.dart';
+import 'package:gym_tracker/ui/widgets/widgets.dart';
 
 class TrainingDetailsScreen extends StatefulWidget {
   const TrainingDetailsScreen({super.key, required this.exercise, this.previousTraining});
@@ -50,7 +50,7 @@ class _TrainingDetailsScreenState extends State<TrainingDetailsScreen> {
       appBar: AppBar(
         title: Text(widget.exercise.name),
         actions: [
-          IconButton(onPressed: (){TrainingsService().addOrUpdateTraining(training); showFlushbar(context); }, icon: const Icon(Icons.save))
+          IconButton(onPressed: (){TrainingsRepository().addOrUpdateTraining(training); showFlushbar(context); }, icon: const Icon(Icons.save))
         ],
         bottom: const _TapBar(),
       ),
@@ -107,7 +107,7 @@ class _TrainingDetailsScreenState extends State<TrainingDetailsScreen> {
 
   FutureBuilder _historyScreen() {
     return FutureBuilder(
-      future: TrainingsService().getTrainingsByExercise(widget.exercise), 
+      future: TrainingsRepository().getTrainingsByExercise(widget.exercise), 
       builder:(context, snapshot) {
         if(!snapshot.hasData) return const CircularProgressIndicator();
         List<Training> trainingList = snapshot.data!;

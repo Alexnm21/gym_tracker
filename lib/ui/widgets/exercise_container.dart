@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_tracker/config/app_theme.dart';
-import 'package:gym_tracker/models/models.dart';
+import 'package:gym_tracker/domain/models/models.dart';
 
 class ExerciseContainer extends StatelessWidget {
   const ExerciseContainer({super.key, required this.exercise});

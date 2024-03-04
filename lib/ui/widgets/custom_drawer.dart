@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:gym_tracker/config/app_theme.dart';
-import 'package:gym_tracker/screens/categories_screen.dart';
-import 'package:gym_tracker/screens/screens.dart';
+import 'package:gym_tracker/ui/screens/categories_screen.dart';
+import 'package:gym_tracker/ui/screens/exercises_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});

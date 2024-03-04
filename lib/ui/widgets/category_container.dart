@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_tracker/config/app_theme.dart';
-import 'package:gym_tracker/models/models.dart';
+import 'package:gym_tracker/domain/models/exercise_category.dart';
 
 class CategoryContainer extends StatelessWidget {
   const CategoryContainer({super.key, required this.category});
